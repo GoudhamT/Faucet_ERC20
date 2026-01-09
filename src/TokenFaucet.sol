@@ -11,7 +11,7 @@ contract FaucetToken is ERC20 {
     event Minted(address indexed user, uint256 value);
     event TokenAdded(address indexed user, uint256 value);
 
-    address private owner;
+    address public owner;
     // mapping(address => uint256) private faucetClaim;
     uint256 constant INITIAL_SUPPLY = 100 ether;
     mapping(address => uint256) private claimedAt;
