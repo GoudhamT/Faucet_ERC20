@@ -1,6 +1,6 @@
 //SPDX-License-Identifier:MIT
 
-pragma solidity 0.8.20;
+pragma solidity ^0.8.20;
 
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
@@ -57,5 +57,10 @@ contract FaucetToken is ERC20 {
             claimedAt[_user] = block.timestamp;
         }
         emit TokenAdded(_user, CLAIM_VALUE);
+    }
+
+    /*Getter functions */
+    function getOwner() external view returns (address) {
+        return owner;
     }
 }
