@@ -1,8 +1,12 @@
+.PHONY: build compile test 
+
+-include .env
+
 install:
 	forge install OpenZeppelin/openzeppelin-contracts
 build:
 	forge build
 compile:
 	forge compile
-test:
-	forge test
+	
+test:; forge test

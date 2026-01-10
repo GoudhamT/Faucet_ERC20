@@ -8,8 +8,8 @@ contract FaucetToken is ERC20 {
     /*Errors */
     error FaucetToken__InvalidAddress(address);
     /*Events*/
-    event Minted(address indexed user, uint256 value);
-    event TokenAdded(address indexed user, uint256 value);
+    event FaucetToken__Minted(address indexed user, uint256 value);
+    event FaucetToken__TokenAdded(address indexed user, uint256 value);
 
     address public owner;
     // mapping(address => uint256) private faucetClaim;
@@ -45,7 +45,7 @@ contract FaucetToken is ERC20 {
 
     function mint(uint256 _value) public onlyOwner {
         _mint(msg.sender, _value);
-        emit Minted(msg.sender, _value);
+        emit FaucetToken__Minted(msg.sender, _value);
     }
 
     function claim(address _user) public validateClaimTime(_user) {
@@ -56,11 +56,15 @@ contract FaucetToken is ERC20 {
         if (status) {
             claimedAt[_user] = block.timestamp;
         }
-        emit TokenAdded(_user, CLAIM_VALUE);
+        emit FaucetToken__TokenAdded(_user, CLAIM_VALUE);
     }
 
     /*Getter functions */
     function getOwner() external view returns (address) {
         return owner;
+    }
+
+    function getTimeDetails(address _user) external view returns (uint256) {
+        return claimedAt[_user];
     }
 }
