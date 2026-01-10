@@ -4,9 +4,17 @@
 
 install:
 	forge install OpenZeppelin/openzeppelin-contracts
+	forge remappings > remappings.txt
 build:
 	forge build
 compile:
 	forge compile
 	
 test:; forge test
+
+deploy-sepolia:
+	forge script script/DeployScript.s.sol --rpc-url $(SEPOLIA_RPC_URL) --private-key $(SEPOLIA_PRIVATE_KEY) --broadcast -vvv
+verify-sepolia:
+	forge verify-contract 0x09096343f7527A5d2a991083238224e58d435B1D src/TokenFaucet.sol:FaucetToken  --rpc-url $(SEPOLIA_RPC_URL) --etherscan-api-key $(ETHERSCAN_API_KEY) 
+verify-test:
+	--show-standard-json-input  > verify.json

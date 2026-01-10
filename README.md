@@ -1,66 +1,44 @@
-## Foundry
+# 🪙 Token Faucet
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A lightweight ERC20 token faucet deployed on the Sepolia testnet, designed to reliably distribute a fixed amount of tokens to users with built-in claim tracking and time-based validation.
 
-Foundry consists of:
+This project demonstrates a complete smart contract lifecycle: local testing, deployment, on-chain verification, and real wallet interaction.
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+---
 
-## Documentation
+## 📍 Live Deployment
 
-https://book.getfoundry.sh/
+- **Network:** Sepolia Testnet  
+- **Contract Address:**  
+  `0x09096343f7527A5d2a991083238224e58d435B1D`
 
-## Usage
+---
 
-### Build
+## ✨ Features
 
-```shell
-$ forge build
-```
+- ERC20-compliant token distribution
+- Faucet-based claim mechanism
+- Time-based claim validation
+- Secure transfers using OpenZeppelin
+- Fully tested with Foundry
+- Deployed and verified on Sepolia
 
-### Test
+---
 
-```shell
-$ forge test
-```
+## 🛠 Tech Stack
 
-### Format
+- Solidity
+- OpenZeppelin Contracts
+- Foundry (forge)
+- Sepolia Testnet
+- MetaMask
 
-```shell
-$ forge fmt
-```
+---
+## 🚀 Getting Started (Local Development)
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+```bash
+git clone https://github.com/GoudhamT/Faucet_ERC20.git
+cd Faucet_ERC20
+forge install
+forge build
+forge test
